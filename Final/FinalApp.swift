@@ -7,9 +7,19 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 @main
 struct FinalApp: App {
+    init() {
+        do {
+            try Tips.configure()
+        } catch {
+            print("Failed to configure Tips: \(error)")
+        }
+    }
+
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
